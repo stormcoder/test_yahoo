@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  dev:
+    build: .
+    volumes:
+      - .:/app:cached
+      - /app/node_modules
+    user: developer
+    environment:
+      - NPM_CONFIG_CACHE=/home/developer/.npm
+    tty: true
