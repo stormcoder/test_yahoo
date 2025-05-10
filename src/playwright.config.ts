@@ -20,7 +20,6 @@ const config: PlaywrightTestConfig = {
       use: { browserName: 'firefox' },
     },
   ],
-  reporter: [['html'], ['cucumber-json']]
 };
 
 export default config;

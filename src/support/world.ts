@@ -1,4 +1,4 @@
-import { setWorldConstructor, World } from '@cucumber/cucumber';
+import { setWorldConstructor, World, IWorldOptions } from '@cucumber/cucumber';
 import { Browser, BrowserContext, Page, chromium } from '@playwright/test';
 import { ICustomWorld } from './types';
 
@@ -7,7 +7,7 @@ class CustomWorld extends World implements ICustomWorld {
   context!: BrowserContext;
   page!: Page;
 
-  constructor(options: { attach: Function; parameters: { [key: string]: any } }) {
+  constructor(options: IWorldOptions) {
     super(options);
   }
 

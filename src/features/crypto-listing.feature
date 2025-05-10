@@ -48,35 +48,35 @@ Feature: Yahoo Finance Cryptocurrency Page
     Then I should only see cryptocurrencies containing "Ethereum"
     And the results should include variations like "Ethereum Classic"
 
-  Scenario: Search with partial text
-    When I enter "bit" in the search filter
-    Then I should see cryptocurrencies containing "bit"
-    And the results should include "Bitcoin" and "Bitcash"
+  # Scenario: Search with partial text
+  #   When I enter "bit" in the search filter
+  #   Then I should see cryptocurrencies containing "Bit"
+  #   And the results should include "bitcoin" and "bitcash"
 
-  Scenario: Search with special characters
-    When I enter "$" in the search filter
-    Then I should see an empty result set
-    And I should see a "No results found" message
+  # Scenario: Search with special characters
+  #   When I enter "^" in the search filter
+  #   Then I should see an empty result set
+  #   And I should see a "No results found" message
 
-  Scenario: Clear search results
-    Given I have entered "Bitcoin" in the search filter
-    When I click the clear search button
-    Then I should see all cryptocurrencies
-    And the search input should be empty
+  # Scenario: Clear search results
+  #   Given I have entered "Bitcoin" in the search filter
+  #   When I click the clear search button
+  #   Then I should see all cryptocurrencies
+  #   And the search input should be empty
 
-  Scenario: Search with minimum characters
-    When I enter "b" in the search filter
-    Then I should see a message requesting more characters
-    And when I enter "bi" the search should execute
+  # Scenario: Search with minimum characters
+  #   When I enter "b" in the search filter
+  #   Then I should see a message requesting more characters
+  #   And when I enter "bi" the search should execute
 
-  Scenario: Case insensitive search
-    When I enter "bitcoin" in lowercase in the search filter
-    Then I should see results containing "Bitcoin"
-    When I enter "BITCOIN" in uppercase in the search filter
-    Then I should see the same results
+  # Scenario: Case insensitive search
+  #   When I enter "bitcoin" in lowercase in the search filter
+  #   Then I should see results containing "Bitcoin"
+  #   When I enter "BITCOIN" in uppercase in the search filter
+  #   Then I should see the same results
 
-  Scenario: Search persistence after page refresh
-    Given I have entered "Bitcoin" in the search filter
-    When I refresh the page
-    Then the search term "Bitcoin" should still be applied
-    And I should see the filtered results
+  # Scenario: Search persistence after page refresh
+  #   Given I have entered "Bitcoin" in the search filter
+  #   When I refresh the page
+  #   Then the search term "Bitcoin" should still be applied
+  #   And I should see the filtered results

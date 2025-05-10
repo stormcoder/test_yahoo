@@ -3,16 +3,20 @@
   "version": "1.0.0",
   "description": "Automated tests with Playwright and TypeScript",
   "scripts": {
-    "test": "cucumber-js",
-    "build": "tsc"
+    "test": "cucumber-js --require-module ts-node/register --require src/steps/**/*.ts --require src/support/**/*.ts src/features/**/*.feature --format html:./reports/cucumber-report.html --format summary --publish",
+    "test:parallel": "cucumber-js --parallel 2 --require-module ts-node/register --require src/steps/**/*.ts --require src/support/**/*.ts src/features/**/*.feature",
+    "test:debug": "cucumber-js --require-module ts-node/register --require src/steps/**/*.ts --require src/support/**/*.ts src/features/**/*.feature --tags @debug",
+    "build": "tsc",
+    "pretest": "npm run build"
   },
   "dependencies": {
-    "@cucumber/cucumber": "^10.0.1",
-    "@playwright/test": "^1.40.0",
     "typescript": "^5.0.0"
   },
   "devDependencies": {
-    "@types/node": "^20.0.0",
+    "@cucumber/cucumber": "^11.2.0",
+    "@playwright/test": "^1.52.0",
+    "@types/cucumber": "^7.0.3",
+    "@types/node": "^20.17.46",
     "ts-node": "^10.9.1"
   }
 }
