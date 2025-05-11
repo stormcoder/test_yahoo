@@ -1,20 +1,12 @@
 version: '3.8'
 services:
   tests:
-    build: .
-    volumes:
-      - .:/app
-      - node_modules:/app/node_modules
-      - dist:/app/dist
-      - reports:/app/reports
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-3000}:3000"
     environment:
-      - NODE_ENV=development
-    command: bash
-    stdin_open: true
+      - PORT=${PORT:-3000}
     tty: true
-    user: developer
-
-volumes:
-  node_modules:
-  dist:
-  reports:
+    stdin_open: true
