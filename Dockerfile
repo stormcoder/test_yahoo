@@ -40,17 +40,16 @@ RUN chmod -R 777 /app && \
 
 # Create and configure startup script
 RUN echo '#!/bin/bash\n\
+trap "kill 0" EXIT\n\
 npm run build && \
 if [ $? -eq 0 ]; then\n\
   node dist/server.js & \n\
   echo "API Server started on port 3000"\n\
   echo "Container ready for manual test execution"\n\
+  tail -f /dev/null\n\  # Keep container running without wait
 else\n\
   echo "Build failed"\n\
-fi\n\
-bash' > /app/startup.sh && \
-    chmod 755 /app/startup.sh && \
-    chown developer:developer /app/startup.sh
+fi' > /app/startup.sh
 
 # Switch to developer user
 USER developer
