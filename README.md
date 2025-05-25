@@ -1,2 +1,2 @@
 # test_yahoo
-Project demonstrating typescript and playwright use
+Project demonstrating a test framework using Docker, typescript and playwright.
