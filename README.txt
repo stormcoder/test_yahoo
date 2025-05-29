@@ -1,4 +1,4 @@
-Based on your tsconfig.json and project setup, you can execute TypeScript files in a few ways:
+You can execute tests in a few ways:
 
 Using ts-node (which is already in your dependencies):
 
@@ -25,4 +25,3 @@ npm run build  # to compile
 npm run test   # to run tests
 npm run start  # to run your main file
 
-Since you're using the ES2022 target in your tsconfig.json, the compiled JavaScript will use modern JavaScript features. The output will be in the ./dist directory as specified in your tsconfig.json.
