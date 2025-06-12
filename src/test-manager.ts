@@ -32,7 +32,7 @@ export class TestManager {
           });
           currentTags = [];
         } else if (match[2]) { // Tags
-          currentTags = match[2].split('@').filter(Boolean);
+          currentTags = match[2].trim().split(/\s+/).map(tag => tag.startsWith('@') ? tag.substring(1) : tag).filter(Boolean);
         }
       }
     }
